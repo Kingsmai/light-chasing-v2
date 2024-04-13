@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://bybigf875uhqj"]
+
+[ext_resource type="PackedScene" uid="uid://cilde2un1rggo" path="res://src/entities/collectibles/energies/red_energy.tscn" id="1_7bygq"]
+
+[node name="BlueEnergy" instance=ExtResource("1_7bygq")]
+energy_type = 3
+
+[node name="Sprite2D" parent="." index="0"]
+region_rect = Rect2(14, 0, 7, 16)
+
+[node name="Light" parent="." index="2"]
+color = Color(0, 0, 1, 1)

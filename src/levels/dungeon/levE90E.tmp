@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://dh2dvnlhe8nau"]
+
+[ext_resource type="Script" path="res://src/levels/dungeon/LevelGenerator.gd" id="1_a5cac"]
+[ext_resource type="TileSet" uid="uid://dycimmxpl387w" path="res://resources/tilesets/dungeon.tres" id="2_srt6m"]
+
+[node name="LevelDungeon" type="Node2D"]
+
+[node name="LevelGenerator" type="Node" parent="."]
+script = ExtResource("1_a5cac")
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource("2_srt6m")
+format = 2
+layer_0/name = "Blanks"
+layer_1/name = "Floor"
+layer_1/enabled = true
+layer_1/modulate = Color(1, 1, 1, 1)
+layer_1/y_sort_enabled = false
+layer_1/y_sort_origin = 0
+layer_1/z_index = 0
+layer_1/tile_data = PackedInt32Array()

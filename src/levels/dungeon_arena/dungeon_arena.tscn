@@ -1,0 +1,52 @@
+[gd_scene load_steps=9 format=3 uid="uid://8lnvvf730un1"]
+
+[ext_resource type="TileSet" uid="uid://dycimmxpl387w" path="res://resources/tilesets/dungeon.tres" id="1_37eoo"]
+[ext_resource type="Script" path="res://src/levels/dungeon_arena/LevelManager.gd" id="1_cauk5"]
+[ext_resource type="PackedScene" uid="uid://t8yl2sd6ua7x" path="res://src/entities/player/player.tscn" id="1_hliwl"]
+[ext_resource type="PackedScene" uid="uid://c3m0rgo38ec0s" path="res://src/entities/enemies/orc/orc.tscn" id="4_xw7vw"]
+[ext_resource type="PackedScene" uid="uid://cilde2un1rggo" path="res://src/entities/collectibles/energies/red_energy.tscn" id="5_8g3yr"]
+[ext_resource type="PackedScene" uid="uid://cy2l8my0yiueg" path="res://src/entities/collectibles/energies/green_energy.tscn" id="6_up8xl"]
+[ext_resource type="PackedScene" uid="uid://bybigf875uhqj" path="res://src/entities/collectibles/energies/blue_energy.tscn" id="7_ffej5"]
+
+[sub_resource type="Environment" id="Environment_116s0"]
+background_mode = 3
+glow_enabled = true
+
+[node name="DungeonArena" type="Node2D"]
+
+[node name="LevelManager" type="Node" parent="."]
+script = ExtResource("1_cauk5")
+map_size = Vector2i(32, 32)
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color(0.0313726, 0.0313726, 0.0313726, 1)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_116s0")
+
+[node name="LevelMap" type="TileMap" parent="."]
+y_sort_enabled = true
+tile_set = ExtResource("1_37eoo")
+format = 2
+layer_0/name = "Blanks"
+layer_0/z_index = -100
+layer_1/name = "Floor"
+layer_1/z_index = -10
+layer_1/tile_data = PackedInt32Array()
+layer_2/name = "Wall"
+layer_2/y_sort_enabled = true
+layer_2/tile_data = PackedInt32Array()
+
+[node name="Player" parent="LevelMap" instance=ExtResource("1_hliwl")]
+
+[node name="Orc" parent="LevelMap" instance=ExtResource("4_xw7vw")]
+position = Vector2(181, 104)
+
+[node name="RedEnergy" parent="." instance=ExtResource("5_8g3yr")]
+position = Vector2(312, 62)
+
+[node name="GreenEnergy" parent="." instance=ExtResource("6_up8xl")]
+position = Vector2(97, 185)
+
+[node name="BlueEnergy" parent="." instance=ExtResource("7_ffej5")]
+position = Vector2(343, 206)
